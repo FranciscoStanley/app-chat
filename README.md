@@ -90,18 +90,55 @@ Licença
 Crie um arquivo chamado `.gitignore` na pasta `backend` com o seguinte conteúdo:
 
 ```gitignore
-# Node modules
-node_modules/
-
-# Variáveis de ambiente
-.env
-
-# Logs
-npm-debug.log*
-yarn-debug.log*
-
-# Outros
-.DS_Store
+   # Diretórios de dependências
+   node_modules/
+   jspm_packages/
+   
+   # Logs e arquivos de debug
+   logs/
+   *.log
+   npm-debug.log*
+   yarn-debug.log*
+   lerna-debug.log*
+   
+   # Dados de execução
+   pids/
+   *.pid
+   *.seed
+   *.pid.lock
+   
+   # Diretórios de cobertura de testes
+   coverage/
+   .nyc_output/
+   *.lcov
+   
+   # Diretórios de build e arquivos gerados
+   build/
+   dist/
+   lib-cov/
+   
+   # Arquivos de cache do npm e do ESLint
+   .npm/
+   .eslintcache
+   
+   # Arquivos gerados pelo npm pack
+   *.tgz
+   
+   # Arquivo de integridade do Yarn
+   .yarn-integrity
+   
+   # Arquivos de ambiente (não versionar)
+   .env
+   .env.*.local
+   
+   # Arquivos e diretórios do sistema operacional
+   .DS_Store
+   
+   # Configurações de editores/IDE
+   .idea/
+   .vscode/
+   *.sublime-project
+   *.sublime-workspace
 ```
 
 ## .gitignore para o Front-end
@@ -109,21 +146,29 @@ yarn-debug.log*
 Crie um arquivo chamado .gitignore na pasta frontend com o seguinte conteúdo:
 
 ```gitignore
-# Node modules
-node_modules/
-
-# Diretório de build (produção)
-build/
-
-# Variáveis de ambiente
-.env
-
-# Logs
-npm-debug.log*
-yarn-debug.log*
-
-# Outros
-.DS_Store
+   # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+   
+   # dependencies
+   /node_modules
+   /.pnp
+   .pnp.js
+   
+   # testing
+   /coverage
+   
+   # production
+   /build
+   
+   # misc
+   .DS_Store
+   .env.local
+   .env.development.local
+   .env.test.local
+   .env.production.local
+   
+   npm-debug.log*
+   yarn-debug.log*
+   yarn-error.log*
 ```
 
 

@@ -1,14 +1,12 @@
-const chatRepository = require("../repositories/chatRepository");
+import {
+  getChatHistory as repoGetChatHistory,
+  saveMessage,
+} from "../repositories/chatRepository.js";
 
-class ChatService {
-  async sendMessage(messageData) {
-    // Adicione validações ou regras de negócio, se necessário
-    return await chatRepository.createMessage(messageData);
-  }
-
-  async getChatHistory(limit) {
-    return await chatRepository.getMessages(limit);
-  }
+export async function getChatHistory(limit) {
+  return await repoGetChatHistory(limit);
 }
 
-module.exports = new ChatService();
+export async function sendMessage(messageData) {
+  return await saveMessage(messageData);
+}

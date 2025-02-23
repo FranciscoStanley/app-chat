@@ -2,10 +2,16 @@
   "name": "back",
   "version": "1.0.0",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Francisco Stanley Rodrigues Albuquerque",
   "license": "ISC",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "express": "^4.21.2",
+    "mongoose": "^8.10.1",
+    "socket.io": "^4.8.1"
+  }
 }

@@ -1,19 +1,19 @@
-const express = require("express");
-const http = require("http");
-const socketIo = require("socket.io");
-const db = require("./src/utils/db");
-const chatRoutes = require("./src/routes/chatRoutes");
+import express, { json } from "express";
+import { createServer } from "http";
+import { Server } from "socket.io";
+import db from "./src/utils/db.js";
+import chatRoutes from "./src/routes/chatRoutes.js";
 
 const app = express();
-const server = http.createServer(app);
-const io = socketIo(server, {
+const server = createServer(app);
+const io = new Server(server, {
   cors: { origin: "*" },
 });
 
 const PORT = process.env.PORT || 3000;
 
 // Middleware para interpretar JSON
-app.use(express.json());
+app.use(json());
 
 // Rotas da API
 app.use("/api/chat", chatRoutes);

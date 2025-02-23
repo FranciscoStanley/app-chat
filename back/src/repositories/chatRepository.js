@@ -1,14 +1,19 @@
-const Message = require("../models/message");
+import Message from "../models/message.js";
 
-class ChatRepository {
-  async createMessage(messageData) {
-    const message = new Message(messageData);
-    return await message.save();
-  }
-
-  async getMessages(limit = 50) {
-    return await Message.find().sort({ timestamp: -1 }).limit(limit);
+export async function getChatHistory(limit) {
+  try {
+    // Supondo que Message seja um modelo do Mongoose
+    return await Message.find().sort({ createdAt: -1 }).limit(limit).exec();
+  } catch (error) {
+    throw new Error("Erro ao recuperar o histórico do chat: " + error.message);
   }
 }
 
-module.exports = new ChatRepository();
+export async function saveMessage(messageData) {
+  try {
+    const message = new Message(messageData);
+    return await message.save();
+  } catch (error) {
+    throw new Error("Erro ao salvar a mensagem: " + error.message);
+  }
+}
